@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { TestComponent } from './test/test.component';
 import { WishesComponent } from './wishes/wishes.component';
 import { WishlistsComponent } from './wishlists/wishlists.component';
 
 const routes: Routes = [
-  {path: 'wishlists', component: WishlistsComponent},
-  {path: 'wishes', component: WishesComponent}
+  { path: 'wishlist/:id', component: WishlistsComponent },
+  { path: 'test', component: TestComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
