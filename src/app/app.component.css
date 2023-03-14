@@ -1,0 +1,10 @@
+button {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    background-color: #fcc04a;
+}
+
+mat-icon {
+    color: white;
+}
