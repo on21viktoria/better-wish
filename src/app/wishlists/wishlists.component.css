@@ -1,3 +1,13 @@
-.wishlist-background {
-  background-color: red;
+.add-button {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+}
+
+mat-icon {
+  color: white;
+}
+
+.mat-mdc-fab.mat-accent {
+  background-color: #fcc04a;
 }

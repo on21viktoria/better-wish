@@ -13,9 +13,6 @@
         wishlist.name
       }}</a>
     </mat-nav-list>
-    <li>
-      <a routerLink="test">Test</a>
-    </li>
     <button (click)="openDialog()">Add new wishlist</button>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -37,6 +34,7 @@
         />
       </span>
     </mat-toolbar>
+    <ng-content></ng-content>
     <!-- Add Content Here -->
   </mat-sidenav-content>
 </mat-sidenav-container>

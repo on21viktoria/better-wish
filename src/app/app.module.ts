@@ -19,7 +19,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
-import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +27,6 @@ import { TestComponent } from './test/test.component';
     WishlistsComponent,
     WishesComponent,
     AddWishlistComponent,
-    TestComponent,
   ],
   imports: [
     BrowserModule,
