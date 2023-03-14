@@ -18,7 +18,8 @@ import { WishesComponent } from './wishes/wishes.component';
 import { AddWishlistComponent } from './add-wishlist/add-wishlist.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
-import { MatInput, MatInputModule } from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card'
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { MatInput, MatInputModule } from '@angular/material/input';
     MatDialogModule,
     MatFormFieldModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule
 
   ],
   providers: [],
