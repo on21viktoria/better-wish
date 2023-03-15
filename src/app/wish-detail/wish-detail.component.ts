@@ -1,32 +1,41 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WishlistService } from '../wishlist.service';
 
 @Component({
-selector: 'app-wish-detail',
-templateUrl: './wish-detail.component.html',
-styleUrls: ['./wish-detail.component.css'],
+  selector: 'app-wish-detail',
+  templateUrl: './wish-detail.component.html',
+  styleUrls: ['./wish-detail.component.css'],
 })
 export class WishDetailComponent {
-constructor(
-private route: ActivatedRoute,
-private router: Router,
-private wishlistService: WishlistService,
-private formBuilder: FormBuilder
-) {}
+  alreadyPurchased = new FormControl(false);
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private wishlistService: WishlistService,
+    private formBuilder: FormBuilder
+  ) {}
 
-wishForm = this.formBuilder.group({
-name: ''
-})
+  wishForm = this.formBuilder.group({
+    name: '',
+    description: '',
+    url: '',
+    price: '',
+    alreadyPurchased: this.alreadyPurchased,
+  });
 
-ngOnInit() {
-}
+  ngOnInit() {}
 
-async addWishToWishlist() {
-let name = this.wishForm.value.name || ''
-const wishlistId = String(this.route.snapshot.paramMap.get('id'));
-await this.wishlistService.addWishToWishlist(wishlistId, name);
-this.router.navigate(['../'], { relativeTo: this.route });
-}
+  async addWishToWishlist() {
+    let name = this.wishForm.value.name || '';
+    let description = this.wishForm.value.description || '';
+    let url = this.wishForm.value.url || '';
+    let price = this.wishForm.value.price || '';
+    let alreadyPurchased = this.wishForm.value.alreadyPurchased || false;
+    console.log(alreadyPurchased);
+    const wishlistId = String(this.route.snapshot.paramMap.get('id'));
+    await this.wishlistService.addWishToWishlist(wishlistId, name, description, url, price, alreadyPurchased);
+    this.router.navigate(['../'], { relativeTo: this.route });
+  }
 }

@@ -21,7 +21,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { WishDetailComponent } from './wish-detail/wish-detail.component';
 import { MatSelectModule } from '@angular/material/select';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
 declarations: [
@@ -54,7 +54,8 @@ FormsModule,
 MatInputModule,
 MatCardModule,
 MatSelectModule,
-ReactiveFormsModule
+ReactiveFormsModule,
+MatCheckboxModule,
 ],
 providers: [],
 bootstrap: [AppComponent],

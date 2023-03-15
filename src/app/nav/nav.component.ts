@@ -36,13 +36,14 @@ export class NavComponent {
     });
 
     dialogRef.afterClosed().subscribe(name => {
-      this.wishlistService.addWishlist(name);
-      this.refresh();
+      if(name) {
+        this.wishlistService.addWishlist(name);
+        this.refresh();
+      }
     });
   }
 
   async refresh() {
     this.wishlists = await this.wishlistService.getAllWishlists();
   }
-
 }

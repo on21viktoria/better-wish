@@ -4,6 +4,6 @@ export interface Wish {
     description?: string;
     url?: string;
     image?: string;
-    price?: Float32Array;
+    price?: string;
     purchased?: boolean;
     }
