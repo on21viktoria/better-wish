@@ -1,0 +1,11 @@
+<div class="container">
+<h1>Add your wish</h1>
+<form (ngSubmit)="addWishToWishlist()" [formGroup]="wishForm">
+<mat-form-field>
+<input matInput type="text" id="name" required placeholder="Name" formControlName="name">
+</mat-form-field>
+
+<button type="submit">Save</button>
+<button>Cancel</button>
+</form>
+</div>

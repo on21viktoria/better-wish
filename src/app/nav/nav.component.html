@@ -1,40 +1,39 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav
-    #drawer
-    class="sidenav"
-    fixedInViewport
-    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="(isHandset$ | async) === false"
+  #drawer
+  class="sidenav"
+  fixedInViewport
+  [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+  [mode]="(isHandset$ | async) ? 'over' : 'side'"
+  [opened]="(isHandset$ | async) === false"
   >
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list *ngFor="let wishlist of wishlists">
-      <a mat-list-item routerLink="/wishlist/{{ wishlist.id }}">{{
-        wishlist.name
-      }}</a>
-    </mat-nav-list>
-    <button (click)="openDialog()">Add new wishlist</button>
+  <mat-toolbar>Wishlists</mat-toolbar>
+  <mat-nav-list *ngFor="let wishlist of wishlists">
+  <a mat-list-item routerLink="/wishlist/{{ wishlist.id }}">{{
+  wishlist.name
+  }}</a>
+  </mat-nav-list>
+  <button mat-button color="primary" (click)="openDialog()">Add new wishlist</button>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async"
-      >
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span>
-        <img
-          src="assets/logo/BetterWish_Logo.png"
-          alt="Better Wish"
-          height="30vw"
-        />
-      </span>
-    </mat-toolbar>
-    <ng-content></ng-content>
-    <!-- Add Content Here -->
+  <mat-toolbar color="primary">
+  <button
+  type="button"
+  aria-label="Toggle sidenav"
+  mat-icon-button
+  (click)="drawer.toggle()"
+  *ngIf="isHandset$ | async"
+  >
+  <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+  <span>
+  <img
+  src="assets/logo/BetterWish_Logo.png"
+  alt="Better Wish"
+  height="30vw"
+  />
+  </span>
+  </mat-toolbar>
+  <ng-content></ng-content>
   </mat-sidenav-content>
-</mat-sidenav-container>
+  </mat-sidenav-container>

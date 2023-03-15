@@ -1,4 +1,12 @@
 <div>
-  <h1 *ngIf="wishlist !== undefined">{{ wishlist.name }}</h1>
-</div>
-<button class="add-button" mat-fab><mat-icon>add</mat-icon></button>
+  <h1>{{ wishlist.name }}</h1>
+  </div>
+  <div *ngIf="wishlist.wishes !== undefined">
+  <div *ngFor="let wish of wishlist.wishes">
+  <li>{{wish.name}}
+  </li>
+  </div>
+  </div>
+  <button class="add-button" (click)="navigate()" mat-fab>
+  <mat-icon>add</mat-icon>
+  </button>
