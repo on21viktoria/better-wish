@@ -3,7 +3,7 @@
   </div>
   <div *ngIf="wishlist.wishes !== undefined">
   <div *ngFor="let wish of wishlist.wishes">
-  <app-wishes [wish]="wish">{{wish.name}}
+  <app-wishes [wish]="wish" [currentWishlist]="wishlist">{{wish.name}}
   </app-wishes>
   </div>
   </div>

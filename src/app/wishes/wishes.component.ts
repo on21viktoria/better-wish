@@ -3,6 +3,7 @@ import { Wish } from '../wish';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { WishlistService } from '../wishlist.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
+import { Wishlist } from '../wishlist';
 
 @Component({
   selector: 'app-wishes',
@@ -13,7 +14,8 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
 export class WishesComponent {
   purchased = new FormControl(false);
 
-  @Input() wish = {} as Wish;
+  @Input()   wish = {} as Wish;
+  @Input() currentWishlist = {} as Wishlist;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -40,7 +42,8 @@ export class WishesComponent {
       this.wish.purchased = true;
     };
     console.log("ChangePurchaseState", this.wish.purchased)
-    this.wishlistService.alterPurchaseState("9723ef62-ed74-4029-a4e2-96a2206a9b2a", this.wish.id, this.wish.purchased)
+    console.log("CurrentWishlistId", this.currentWishlist.id)
+    this.wishlistService.alterPurchaseState(this.currentWishlist.id, this.wish.id, this.wish.purchased)
   }
 
 
