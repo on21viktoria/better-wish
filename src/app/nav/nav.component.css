@@ -21,3 +21,7 @@ mat-toolbar {
   padding: 0px 16px!important;
   font-weight: bold;
 } 
+
+.logo {
+  padding-left: 15px;
+}

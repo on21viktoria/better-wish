@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Wish } from '../wish';
 
 @Component({
   selector: 'app-wishes',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./wishes.component.css']
 })
 export class WishesComponent {
-
+@Input()wish = {} as Wish;
+onClick() {
+  window.open("//"+this.wish.url)
+}
 }
