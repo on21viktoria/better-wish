@@ -21,7 +21,12 @@ export class WishesComponent {
   });
 
   onClick() {
-    window.open("//"+this.wish.url)
+    if(this.wish.url?.startsWith('http')){
+    window.open(this.wish.url);
+    }
+    else {
+      window.open('//'+this.wish.url);
+    }
   }
 
 
