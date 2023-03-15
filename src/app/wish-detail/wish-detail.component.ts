@@ -21,6 +21,7 @@ export class WishDetailComponent {
     name: '',
     description: '',
     url: '',
+    image: '',
     price: '',
     alreadyPurchased: this.alreadyPurchased,
   });
@@ -31,11 +32,12 @@ export class WishDetailComponent {
     let name = this.wishForm.value.name || '';
     let description = this.wishForm.value.description || '';
     let url = this.wishForm.value.url || '';
+    let image = this.wishForm.value.image || '';
     let price = this.wishForm.value.price || '';
     let alreadyPurchased = this.wishForm.value.alreadyPurchased || false;
     console.log(alreadyPurchased);
     const wishlistId = String(this.route.snapshot.paramMap.get('id'));
-    await this.wishlistService.addWishToWishlist(wishlistId, name, description, url, price, alreadyPurchased);
+    await this.wishlistService.addWishToWishlist(wishlistId, name, description, url, image, price, alreadyPurchased);
     this.router.navigate(['../'], { relativeTo: this.route });
   }
 }

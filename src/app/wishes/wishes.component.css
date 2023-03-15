@@ -9,7 +9,7 @@
     margin: 0;
     height: 100%;
     }
-    
+
     .home-card-content {
     display: flex;
     justify-content: space-between;
@@ -21,7 +21,7 @@
     flex: auto;
     display: block;
     max-width: 50%;
-    } 
+    }
 
     .home-card-content:first-child {
     border-top-left-radius: 4px;
@@ -39,21 +39,26 @@
     } */
 
     .wrapper {
-        display: flex;
+      max-width: 500px;
+      display: flex;
         padding: 20px;
         margin: 20px;
         background-color: whitesmoke;
-        border-radius: 5px;
+        border-radius: 10px;
     }
 
     .image-wrapper {
-        width: 50%;
+        width: 30%;
 
     }
 
-    .image-wrapper > img {
+    .image-wrapper > div > img {
         width: 100%;
         height: auto;
+    }
+
+    .no-image-wrapper {
+      padding: 30px;
     }
 
     .content-wrapper {

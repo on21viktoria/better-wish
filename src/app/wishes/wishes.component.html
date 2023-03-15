@@ -15,7 +15,12 @@
 
     <div class="wrapper">
         <div class="image-wrapper">
-            <img mat-card-image src="https://assets.hermes.com/is/image/hermesproduct/kulturbeutel-fourbi-25--063913CKAA-worn-1-0-0-800-800_g.jpg" alt="Photo of a Shiba Inu">
+          <div *ngIf="wish.image !== ''; else elseBlock">
+            <img mat-card-image [attr.src]="wish.image">
+          </div>
+          <ng-template #elseBlock>
+            <div class="no-image-wrapper"><img mat-card-image src="../../assets/icons/Stern_128.png"></div>
+          </ng-template>
         </div>
         <div class="content-wrapper">
             <h2>{{wish.name}}</h2>

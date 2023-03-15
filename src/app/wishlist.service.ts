@@ -35,12 +35,13 @@ async getWishlist(id: string) {
 return await this.wishlists.get(id);
 }
 
-async addWishToWishlist(wishlistId: string, name: string, description: string, url: string, price: string, alreadyPurchased: boolean) {
+async addWishToWishlist(wishlistId: string, name: string, description: string, url: string, image: string, price: string, alreadyPurchased: boolean) {
 const wish = {
 id: crypto.randomUUID(),
 name,
 description,
 url,
+image,
 price,
 alreadyPurchased,
 };
