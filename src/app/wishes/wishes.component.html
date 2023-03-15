@@ -29,9 +29,11 @@
             <mat-icon class="wish-url" (click)= "onClick()">launch</mat-icon>
             <form [formGroup]="purchaseForm">
               <mat-checkbox
-              [formControl]="alreadyPurchased"
-              id="alreadyPurchased"
-              formControlName="alreadyPurchased">Already Purchased
+              [formControl]="purchased"
+              id="purchased"
+              formControlName="purchased"
+              (change)="changePurchaseState($event)"
+              >Already Purchased
               </mat-checkbox>
             </form>
         </div>

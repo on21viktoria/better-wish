@@ -9,7 +9,7 @@ import { WishlistService } from '../wishlist.service';
   styleUrls: ['./wish-detail.component.css'],
 })
 export class WishDetailComponent {
-  alreadyPurchased = new FormControl(false);
+  purchased = new FormControl(false);
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -23,7 +23,7 @@ export class WishDetailComponent {
     url: '',
     image: '',
     price: '',
-    alreadyPurchased: this.alreadyPurchased,
+    purchased: this.purchased,
   });
 
   ngOnInit() {}
@@ -34,10 +34,10 @@ export class WishDetailComponent {
     let url = this.wishForm.value.url || '';
     let image = this.wishForm.value.image || '';
     let price = this.wishForm.value.price || '';
-    let alreadyPurchased = this.wishForm.value.alreadyPurchased || false;
-    console.log(alreadyPurchased);
+    let purchased = this.wishForm.value.purchased || false;
+    console.log(purchased);
     const wishlistId = String(this.route.snapshot.paramMap.get('id'));
-    await this.wishlistService.addWishToWishlist(wishlistId, name, description, url, image, price, alreadyPurchased);
+    await this.wishlistService.addWishToWishlist(wishlistId, name, description, url, image, price, purchased);
     this.router.navigate(['../'], { relativeTo: this.route });
   }
 }
