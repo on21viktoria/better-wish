@@ -13,7 +13,7 @@
     </mat-card-actions>
     </mat-card-->
 
-    <div class="wrapper">
+    <div class="wrapper" [ngClass]="wish.purchased ? 'already-purchased' : ''">
         <div class="image-wrapper">
           <div *ngIf="wish.image !== ''; else elseBlock">
             <img mat-card-image [attr.src]="wish.image">
@@ -32,6 +32,7 @@
               [formControl]="purchased"
               id="purchased"
               formControlName="purchased"
+              [ngModel]="wish.purchased"
               (change)="changePurchaseState($event)"
               >Already Purchased
               </mat-checkbox>
