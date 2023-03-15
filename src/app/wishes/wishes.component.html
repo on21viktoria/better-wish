@@ -27,5 +27,10 @@
             <p class="wish-price">{{wish.price}}</p>
             <p>{{wish.description}}</p>
             <mat-icon class="wish-url" (click)= "onClick()">launch</mat-icon>
+            <mat-checkbox
+              [formControl]="alreadyPurchased"
+              id="alreadyPurchased"
+              formControlName="alreadyPurchased">Already Purchased
+            </mat-checkbox>
         </div>
     </div>

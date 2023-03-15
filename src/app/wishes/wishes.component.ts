@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Wish } from '../wish';
+import { FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-wishes',
@@ -7,8 +8,22 @@ import { Wish } from '../wish';
   styleUrls: ['./wishes.component.css']
 })
 export class WishesComponent {
-@Input()wish = {} as Wish;
-onClick() {
-  window.open("//"+this.wish.url)
-}
+  alreadyPurchased = new FormControl(false);
+
+  @Input()wish = {} as Wish;
+
+  constructor(private formBuilder: FormBuilder) {
+
+  }
+
+  purchaseForm = this.formBuilder.group({
+    alreadyPurchased: this.wish.purchased,
+  });
+
+  onClick() {
+    window.open("//"+this.wish.url)
+  }
+
+
+
 }
