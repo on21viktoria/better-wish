@@ -6,13 +6,18 @@
   width: 200px;
 }
 
-.sidenav .mat-toolbar {
-  background: inherit;
-}
-
 .mat-toolbar.mat-primary {
   position: sticky;
   top: 0;
   z-index: 1;
   background-color: #fcc04a;
 }
+
+mat-toolbar {
+  background-color: #fcc04a;
+}
+
+.add-button {
+  padding: 0px 16px!important;
+  font-weight: bold;
+} 

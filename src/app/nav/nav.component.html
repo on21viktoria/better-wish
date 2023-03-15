@@ -7,13 +7,13 @@
   [mode]="(isHandset$ | async) ? 'over' : 'side'"
   [opened]="(isHandset$ | async) === false"
   >
-  <mat-toolbar>Wishlists</mat-toolbar>
+  <mat-toolbar class="menu">Wishlists</mat-toolbar>
   <mat-nav-list *ngFor="let wishlist of wishlists">
   <a mat-list-item routerLink="/wishlist/{{ wishlist.id }}">{{
   wishlist.name
   }}</a>
   </mat-nav-list>
-  <button mat-button color="primary" (click)="openDialog()">Add new wishlist</button>
+  <button mat-button color="primary" (click)="openDialog()" class="add-button">Add new wishlist</button>
   </mat-sidenav>
   <mat-sidenav-content>
   <mat-toolbar color="primary">
