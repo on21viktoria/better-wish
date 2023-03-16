@@ -6,6 +6,7 @@ import { Wishlist } from '../wishlist';
 import { MatDialog } from '@angular/material/dialog';
 import { WishlistService } from '../wishlist.service';
 import { AddWishlistComponent } from '../add-wishlist/add-wishlist.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -13,6 +14,7 @@ import { AddWishlistComponent } from '../add-wishlist/add-wishlist.component';
   styleUrls: ['./nav.component.css'],
 })
 export class NavComponent {
+  [x: string]: any;
   wishlists: Wishlist[] = [];
   name: string;
 
@@ -26,7 +28,8 @@ export class NavComponent {
   constructor(
     private breakpointObserver: BreakpointObserver,
     public dialog: MatDialog,
-    private wishlistService: WishlistService
+    private wishlistService: WishlistService,
+    private router: Router,
   ) {
     this.name = '';
   }
@@ -57,5 +60,6 @@ export class NavComponent {
   async deleteWishlist(id: string) {
     await this.wishlistService.deleteWishlist(id);
     this.refresh();
+    this.router.navigate(['./']);
   }
 }

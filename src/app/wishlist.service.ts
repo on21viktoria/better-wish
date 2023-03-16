@@ -9,7 +9,6 @@ import { Wishlist } from './wishlist';
 })
 export class WishlistService extends Dexie {
   wishlists!: Dexie.Table<Wishlist, string>;
-
   constructor(private route: ActivatedRoute) {
     super('wishlist-db');
     this.version(1).stores({
@@ -42,7 +41,7 @@ export class WishlistService extends Dexie {
     url: string,
     image: string,
     price: string,
-    alreadyPurchased: boolean
+    purchased: boolean
   ) {
     const wish = {
       id: crypto.randomUUID(),
@@ -51,9 +50,9 @@ export class WishlistService extends Dexie {
       url,
       image,
       price,
-      alreadyPurchased,
+      purchased,
     };
-
+    console.log(purchased);
     return await this.wishlists
       .where('id')
       .equals(wishlistId)
@@ -62,6 +61,25 @@ export class WishlistService extends Dexie {
       });
   }
 
+  async alterPurchaseState(
+    wishlistId: string,
+    wishId: string,
+    purchased: boolean
+  ) {
+    console.log('in alterPurchaseState', purchased);
+    return await this.wishlists
+      .where('id')
+      .equals(wishlistId)
+      .modify((wishlist) => {
+        console.log(wishlist);
+        wishlist.wishes?.map((wish) => {
+          if (wish.id == wishId) {
+            wish.purchased = purchased;
+          }
+          return wish;
+        });
+      });
+  }
   async deleteWishlist(id: string) {
     await this.wishlists.delete(id);
   }
