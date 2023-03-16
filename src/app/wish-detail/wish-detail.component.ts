@@ -51,4 +51,8 @@ export class WishDetailComponent {
     await this.wishlistService.addWishToWishlist(wishlistId, name, description, url, image, price, purchased);
     this.router.navigate(['../'], { relativeTo: this.route });
   }
+  cancel() {
+    this.router.navigate(['../'], { relativeTo: this.route });
+  }
 }
+
