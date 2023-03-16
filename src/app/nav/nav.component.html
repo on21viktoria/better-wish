@@ -9,9 +9,12 @@
   >
     <mat-toolbar class="menu">Wishlists</mat-toolbar>
     <mat-nav-list *ngFor="let wishlist of wishlists">
-      <a mat-list-item routerLink="/wishlist/{{ wishlist.id }}">{{
-        wishlist.name
-      }}</a>
+      <a
+        mat-list-item
+        routerLink="/wishlist/{{ wishlist.id }}"
+        routerLinkActive="active-link"
+        >{{ wishlist.name }}</a
+      >
       <mat-icon (click)="deleteWishlist(wishlist.id)">delete</mat-icon>
       <mat-icon>update</mat-icon>
     </mat-nav-list>
@@ -41,6 +44,7 @@
           src="assets/logo/BetterWish_Logo.png"
           alt="Better Wish"
           height="23vw"
+          routerLink="/"
         />
       </span>
     </mat-toolbar>

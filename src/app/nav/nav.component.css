@@ -25,4 +25,9 @@ mat-toolbar {
 .logo {
   padding-left: 15px;
   margin-top: 5px;
+  cursor: pointer;
+}
+
+.active-link {
+  background-color: #673ab71c;
 }
