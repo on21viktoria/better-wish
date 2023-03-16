@@ -22,6 +22,7 @@ import { MatCardModule } from '@angular/material/card';
 import { WishDetailComponent } from './wish-detail/wish-detail.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     WishesComponent,
     AddWishlistComponent,
     WishDetailComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
