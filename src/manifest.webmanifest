@@ -8,50 +8,44 @@
   "start_url": "./",
   "icons": [
     {
-      "src": "assets/icons/Stern_72.png",
-      "sizes": "72x69",
-      "type": "image/png",
-      "purpose": "maskable any"
-    },
-    {
       "src": "assets/icons/Stern_96.png",
-      "sizes": "96x92",
+      "sizes": "96x96",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
       "src": "assets/icons/Stern_128.png",
-      "sizes": "128x122",
+      "sizes": "128x128",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
       "src": "assets/icons/Stern_144.png",
-      "sizes": "144x138",
+      "sizes": "144x144",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
       "src": "assets/icons/Stern_152.png",
-      "sizes": "152x145",
+      "sizes": "152x152",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
       "src": "assets/icons/Stern_192.png",
-      "sizes": "192x184",
+      "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
       "src": "assets/icons/Stern_384.png",
-      "sizes": "384x367",
+      "sizes": "384x384",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
       "src": "assets/icons/Stern_512.png",
-      "sizes": "512x490",
+      "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable any"
     }
