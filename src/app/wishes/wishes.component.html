@@ -1,28 +1,31 @@
-    <div class="wrapper" [ngClass]="wish.purchased ? 'already-purchased' : ''">
-        <div class="image-wrapper">
-          <div *ngIf="wish.image !== ''; else elseBlock">
-            <img mat-card-image [attr.src]="wish.image">
-          </div>
-          <ng-template #elseBlock>
-            <div class="no-image-wrapper"><img mat-card-image src="../../assets/icons/Stern_128.png"></div>
-          </ng-template>
-        </div>
-        <div class="content-wrapper">
-          <div class="wish-details">
-            <h2>{{wish.name}}</h2>
-            <p class="wish-price">{{wish.price}}</p>
-            <p>{{wish.description}}</p>
-            <mat-icon class="wish-url" (click)= "onClick()">launch</mat-icon>
-          </div>
-            <form [formGroup]="purchaseForm" class="purchase-form">
-              <mat-checkbox
-              [formControl]="purchased"
-              id="purchased"
-              formControlName="purchased"
-              [ngModel]="wish.purchased"
-              (change)="changePurchaseState($event)"
-              >Already Purchased
-              </mat-checkbox>
-            </form>
-        </div>
+<div class="wrapper" [ngClass]="wish.purchased ? 'already-purchased' : ''">
+  <div class="image-wrapper">
+    <div *ngIf="wish.image !== ''; else elseBlock">
+      <img mat-card-image [attr.src]="wish.image" />
     </div>
+    <ng-template #elseBlock>
+      <div class="no-image-wrapper">
+        <img mat-card-image src="../../assets/icons/Stern_128.png" />
+      </div>
+    </ng-template>
+  </div>
+  <div class="content-wrapper">
+    <div class="wish-details">
+      <h2>{{ wish.name }}</h2>
+      <p class="wish-price">{{ wish.price }}</p>
+      <p>{{ wish.description }}</p>
+      <mat-icon class="wish-url" (click)="onClick()">launch</mat-icon>
+      <mat-icon (click)="deleteWish(wish.id)">delete</mat-icon>
+    </div>
+    <form [formGroup]="purchaseForm" class="purchase-form">
+      <mat-checkbox
+        [formControl]="purchased"
+        id="purchased"
+        formControlName="purchased"
+        [ngModel]="wish.purchased"
+        (change)="changePurchaseState($event)"
+        >Already Purchased
+      </mat-checkbox>
+    </form>
+  </div>
+</div>
