@@ -8,11 +8,13 @@
           </ng-template>
         </div>
         <div class="content-wrapper">
+          <div class="wish-details">
             <h2>{{wish.name}}</h2>
             <p class="wish-price">{{wish.price}}</p>
             <p>{{wish.description}}</p>
             <mat-icon class="wish-url" (click)= "onClick()">launch</mat-icon>
-            <form [formGroup]="purchaseForm">
+          </div>
+            <form [formGroup]="purchaseForm" class="purchase-form">
               <mat-checkbox
               [formControl]="purchased"
               id="purchased"

@@ -1,7 +1,7 @@
     .wrapper {
       max-width: 500px;
       display: flex;
-        padding: 20px;
+        padding: 20px 20px 3px 20px;
         margin: 20px;
         background-color: whitesmoke;
         border-radius: 10px;
@@ -23,6 +23,7 @@
 
     .content-wrapper {
         padding-left: 20px;
+        width: 100%;
     }
 
     .wrapper.already-purchased {
@@ -37,3 +38,23 @@
         color: grey;
         font-weight: semibold;
     }
+
+    .wish-details {
+      padding-left: 11px;
+      margin-bottom: 5%;
+    }
+
+    #purchased {
+      margin-left: 2px;
+    }
+
+    mat-icon {
+      font-size: 22px!important;
+    }
+    .purchase-form {
+      bottom: 0;
+    }
+
+
+
+

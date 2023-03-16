@@ -8,11 +8,11 @@
 
 /* .form-container {
   display: flex;
-}
+} */
 
 .form-field-container {
-  width: 100%;
-} */
+  margin-bottom: 20px;
+}
 
 mat-form-field {
   width: 100%!important;
