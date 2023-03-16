@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WishlistService } from '../wishlist.service';
+import { Wishlist } from '../wishlist';
 
 @Component({
   selector: 'app-wish-detail',
@@ -10,6 +11,8 @@ import { WishlistService } from '../wishlist.service';
 })
 export class WishDetailComponent {
   purchased = new FormControl(false);
+  currentWishlist = {} as Wishlist;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -26,7 +29,15 @@ export class WishDetailComponent {
     purchased: this.purchased,
   });
 
-  ngOnInit() {}
+  ngOnInit() {
+    const id = String(this.route.snapshot.paramMap.get('id'));
+    this.wishlistService.getWishlist(id).then((wishlist) => {
+    if(!wishlist) {
+    throw new Error ("Unexpected error: Missing wishlist");
+    }
+    this.currentWishlist = wishlist;
+});
+  }
 
   async addWishToWishlist() {
     let name = this.wishForm.value.name || '';
