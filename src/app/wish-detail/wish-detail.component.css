@@ -6,15 +6,15 @@
   border-radius: 10px;
 }
 
-.form-container {
+/* .form-container {
   display: flex;
 }
 
 .form-field-container {
   width: 100%;
-}
+} */
 
 mat-form-field {
-  width: 295px!important;
+  width: 100%!important;
 }
 

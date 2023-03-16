@@ -3,7 +3,6 @@
   <h2>Add your wish</h2>
     <div class="form-container">
       <form (ngSubmit)="addWishToWishlist()" [formGroup]="wishForm">
-        <div class = "form-field-container">
           <mat-form-field>
               <input
                 matInput
@@ -14,8 +13,6 @@
                 formControlName="name"
               />
           </mat-form-field>
-        </div>
-        <div class="form-field-container">
           <mat-form-field>
             <textarea
               matInput
@@ -26,8 +23,6 @@
               formControlName="description"
             ></textarea>
           </mat-form-field>
-        </div>
-        <div class="form-field-container">
           <mat-form-field>
             <input
               matInput
@@ -38,8 +33,6 @@
               formControlName="url"
             />
           </mat-form-field>
-        </div>
-        <div class="form-field-container">
           <mat-form-field>
             <input
               matInput
@@ -49,8 +42,6 @@
               formControlName="image"
             />
           </mat-form-field>
-        </div>
-        <div class="form-field-container">
           <mat-form-field>
             <input
               matInput
@@ -61,7 +52,7 @@
               formControlName="price"
             />
           </mat-form-field>
-        </div>
+        <!-- </div> -->
         <div class="form-field-container">
           <mat-checkbox
               [formControl]="purchased"
