@@ -35,7 +35,7 @@ async getWishlist(id: string) {
 return await this.wishlists.get(id);
 }
 
-async addWishToWishlist(wishlistId: string, name: string, description: string, url: string, image: string, price: string, alreadyPurchased: boolean) {
+async addWishToWishlist(wishlistId: string, name: string, description: string, url: string, image: string, price: string, purchased: boolean) {
 const wish = {
 id: crypto.randomUUID(),
 name,
@@ -43,9 +43,23 @@ description,
 url,
 image,
 price,
-alreadyPurchased,
+purchased,
 };
-
+console.log(purchased)
 return await this.wishlists.where("id").equals(wishlistId).modify((wishlist) => { wishlist.wishes?.push(wish)})
 }
+
+async alterPurchaseState(wishlistId: string, wishId: string, purchased: boolean) {
+  console.log("in alterPurchaseState", purchased)
+  return await this.wishlists.where("id").equals(wishlistId).modify((wishlist) => {
+    console.log(wishlist)
+    wishlist.wishes?.map((wish) => {
+      if(wish.id == wishId) {
+        wish.purchased = purchased;
+      }
+      return wish;
+    })
+  })
+}
+
 }

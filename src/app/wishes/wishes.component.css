@@ -1,47 +1,7 @@
-/*.home-card {
-    border-radius: 4px;
-    max-width: 600px;
-    max-height: 1000px;
-    margin-top: 100px;
-    padding: 0;
-}
-    .mat-card-image {
-    margin: 0;
-    height: 100%;
-    }
-
-    .home-card-content {
-    display: flex;
-    justify-content: space-between;
-    }
-
-    .home-card-content > * {
-    justify-content: center;
-    align-items: center;
-    flex: auto;
-    display: block;
-    max-width: 50%;
-    }
-
-    .home-card-content:first-child {
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-    }
-
-    .home-card-content:last-child {
-    flex-direction: column;
-    align-items: start;
-    padding: 8px;
-    }
-
-    .mat-card-title {
-        display: block!important;
-    } */
-
     .wrapper {
       max-width: 500px;
       display: flex;
-        padding: 20px;
+        padding: 20px 20px 3px 20px;
         margin: 20px;
         background-color: whitesmoke;
         border-radius: 10px;
@@ -63,6 +23,11 @@
 
     .content-wrapper {
         padding-left: 20px;
+        width: 100%;
+    }
+
+    .wrapper.already-purchased {
+      text-decoration: line-through ;
     }
 
     h2 {
@@ -73,3 +38,23 @@
         color: grey;
         font-weight: semibold;
     }
+
+    .wish-details {
+      padding-left: 11px;
+      margin-bottom: 5%;
+    }
+
+    #purchased {
+      margin-left: 2px;
+    }
+
+    mat-icon {
+      font-size: 22px!important;
+    }
+    .purchase-form {
+      bottom: 0;
+    }
+
+
+
+

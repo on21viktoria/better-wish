@@ -1,0 +1,23 @@
+.container {
+  max-width: 700px;
+  /* display: flex; */
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+/* .form-container {
+  display: flex;
+} */
+
+.form-field-container {
+  margin-bottom: 20px;
+}
+
+mat-form-field {
+  width: 100%!important;
+}
+
+.price-form-field {
+  width: 40%!important;
+}
