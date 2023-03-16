@@ -18,10 +18,14 @@ mat-toolbar {
 }
 
 .add-button {
-  padding: 0px 16px!important;
+  padding: 0px 16px !important;
   font-weight: bold;
-} 
+}
 
 .logo {
   padding-left: 15px;
+}
+
+mat-icon {
+  padding: 0px 16px !important;
 }

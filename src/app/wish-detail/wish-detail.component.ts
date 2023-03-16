@@ -37,7 +37,15 @@ export class WishDetailComponent {
     let alreadyPurchased = this.wishForm.value.alreadyPurchased || false;
     console.log(alreadyPurchased);
     const wishlistId = String(this.route.snapshot.paramMap.get('id'));
-    await this.wishlistService.addWishToWishlist(wishlistId, name, description, url, image, price, alreadyPurchased);
+    await this.wishlistService.addWishToWishlist(
+      wishlistId,
+      name,
+      description,
+      url,
+      image,
+      price,
+      alreadyPurchased
+    );
     this.router.navigate(['../'], { relativeTo: this.route });
   }
 }
