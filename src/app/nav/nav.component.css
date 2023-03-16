@@ -24,8 +24,5 @@ mat-toolbar {
 
 .logo {
   padding-left: 15px;
-}
-
-mat-icon {
-  padding: 0px 16px !important;
+  margin-top: 5px;
 }
