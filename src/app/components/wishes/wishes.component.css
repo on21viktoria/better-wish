@@ -2,7 +2,7 @@
   max-width: 500px;
   display: flex;
   padding: 20px 20px 3px 20px;
-  margin: 20px;
+  margin-bottom: 20px;
   background-color: whitesmoke;
   border-radius: 10px;
 }
@@ -14,10 +14,6 @@
 .image-wrapper > div > img {
   width: 100%;
   height: auto;
-}
-
-.no-image-wrapper {
-  padding: 30px;
 }
 
 .content-wrapper {
@@ -78,3 +74,9 @@ mat-icon {
 .product-img {
   cursor: pointer;
 }
+
+@media (max-width: 800px) {
+  .image-wrapper{
+    width: 50%;
+  }
+} 

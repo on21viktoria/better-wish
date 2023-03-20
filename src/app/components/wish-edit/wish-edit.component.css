@@ -46,3 +46,15 @@ mat-form-field {
 .edit-wish-save-button {
   background-color: #673ab71c;
 }
+
+.star-container {
+  height: 300px;
+  margin-bottom: 20px;
+  padding: 0 10vw;
+}
+
+.star-container > img {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
