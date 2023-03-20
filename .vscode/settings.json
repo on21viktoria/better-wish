@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/3d093610-2070-4236-88be-25879d510297/resourceGroups/BetterWishRessources/providers/Microsoft.Web/sites/better-wish",
+    "appService.deploySubpath": "dist"
+}
