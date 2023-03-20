@@ -44,4 +44,5 @@ export class WishlistsComponent {
     this.wishlistService.deleteWishFromWishlist(wishlistId, id);
     this.getCurrentWishlist();
   }
+  
 }

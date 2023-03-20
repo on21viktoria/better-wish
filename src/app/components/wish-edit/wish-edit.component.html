@@ -3,6 +3,14 @@
     <h2>Edit wish</h2>
       <div class="form-container">
         <form (ngSubmit)="editWishToWishlist()" [formGroup]="wishEditForm">
+            <div class="image-container" *ngIf="wishEditForm.value.image; else elseBlock">
+                <img [attr.src]="wishEditForm.value.image" />
+            </div>
+            <ng-template #elseBlock>
+              <div class="image-container">
+                <img src="../../../assets/icons/Stern_512.png" />
+              </div>
+            </ng-template>
             <mat-form-field>
               <mat-label>Name</mat-label>
                 <input

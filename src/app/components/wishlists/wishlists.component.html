@@ -2,15 +2,31 @@
   <h1 class="wishlist-name">{{ wishlist.name }}</h1>
 </div>
 <div *ngIf="wishlist.wishes !== undefined">
-  <div *ngFor="let wish of wishlist.wishes">
-    <app-wishes
-      [wish]="wish"
-      [currentWishlist]="wishlist"
-      (wishDeleted)="deleteWish($event)"
-      >{{ wish.name }}
-    </app-wishes>
+    <div *ngFor="let wish of wishlist.wishes">
+      <div *ngIf="!wish.purchased">
+        <app-wishes
+        [wish]="wish"
+        [currentWishlist]="wishlist"
+        (wishDeleted)="deleteWish($event)"
+        >{{ wish.name }}
+        </app-wishes>
+      </div>
+    </div>
+    <div >
+        <h2>Already purchased</h2>
+        <div *ngFor="let wish of wishlist.wishes">
+          <div *ngIf="wish.purchased">
+            <app-wishes
+            class="purchasedWish"
+            [wish]="wish"
+            [currentWishlist]="wishlist"
+            (wishDeleted)="deleteWish($event)"
+            >{{ wish.name }}
+            </app-wishes>
+          </div>
+      </div>
   </div>
-</div>
+  </div>
 <button class="add-button" (click)="navigate()" mat-fab>
   <mat-icon>add</mat-icon>
 </button>

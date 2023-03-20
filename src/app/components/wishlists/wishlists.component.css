@@ -8,6 +8,10 @@ mat-icon {
   color: white;
 }
 
+h2 {
+  padding: 20px 0 0 20px;
+}
+
 .mat-mdc-fab.mat-accent {
   background-color: #fcc04a;
 }
@@ -15,4 +19,8 @@ mat-icon {
 .wishlist-name {
   font-weight: bold!important;
   padding: 20px 0 0 20px!important;
+}
+
+.purchasedWish {
+  background-color: #fcc04a;
 }

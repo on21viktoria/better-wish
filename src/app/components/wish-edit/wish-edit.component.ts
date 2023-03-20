@@ -13,6 +13,7 @@ import { WishlistService } from 'src/app/wishlist.service';
 export class WishEditComponent {
   purchased = new FormControl(false);
   currentWishlist = {} as Wishlist;
+  imageUrl = ""
   wish = {} as Wish;
   wishEditForm: FormGroup;
 
@@ -38,7 +39,7 @@ export class WishEditComponent {
   ngOnInit() {
     const wishlistId = String(this.route.snapshot.paramMap.get('wishlistId'));
     const wishId = String(this.route.snapshot.paramMap.get('wishId'));
-    
+
     this.wishlistService.getWishlist(wishlistId).then((wishlist) => {
       if(!wishlist) {
       throw new Error ("Unexpected error: Missing wishlist");
