@@ -61,7 +61,7 @@
               Already Purchased
           </mat-checkbox>
         </div>
-        <button mat-button type="submit">Save</button>
+        <button [disabled]="wishForm.value.name === ''" mat-button type="submit">Save</button>
         <button mat-button (click)="cancel()">Cancel</button>
       </form>
     </div>

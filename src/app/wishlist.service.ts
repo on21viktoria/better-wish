@@ -34,10 +34,6 @@ export class WishlistService extends Dexie {
     return await this.wishlists.get(id);
   }
 
-  async getWishFromWishlist(wishlistId: string, wishId: string) {
-
-  }
-
   async addWishToWishlist(
     wishlistId: string,
     name: string,
@@ -102,11 +98,11 @@ export class WishlistService extends Dexie {
       });
   }
 
-  async updateWishfromWishlist(wishlistId: string, wish: Wish){
+  async updateWishfromWishlist(wishlistId: string, wishId: string, wish: Wish){
     return await this.wishlists.where('id').equals(wishlistId).modify((wishlist) => {
-      if (wishlist.wishes) {
-        let foundIndex = wishlist.wishes.findIndex(x => x.id === wish.id)
-        wishlist.wishes[foundIndex] = wish;
+      if(wishlist.wishes){
+        const wishToUpdateIndex = wishlist.wishes.findIndex(wish => wish.id === wishId)
+        wishlist.wishes[wishToUpdateIndex] = wish
       }
     });
   }

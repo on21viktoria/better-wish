@@ -32,8 +32,6 @@ export class WishDetailComponent {
   ngOnInit() {
     const id = String(this.route.snapshot.paramMap.get('wishlistId'));
 
-    console.log(String(this.route.parent))
-
     this.wishlistService.getWishlist(id).then((wishlist) => {
     if(!wishlist) {
     throw new Error ("Unexpected error: Missing wishlist");
