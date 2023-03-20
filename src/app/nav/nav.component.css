@@ -65,3 +65,12 @@ mat-toolbar {
   --mdc-list-list-item-selected-container-color: none !important;
   --mdc-list-list-item-leading-avatar-color: none !important;
 }
+
+.list-item-container:hover {
+  background-color: #673ab71c;
+}
+
+.mat-ripple-element {
+  display: none !important;
+}
+
