@@ -1,51 +1,38 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav
-    #drawer
-    class="sidenav"
-    fixedInViewport
-    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="(isHandset$ | async) === false"
-  >
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-toolbar class="menu">Wishlists</mat-toolbar>
     <mat-nav-list *ngFor="let wishlist of wishlists">
-      <a
-        mat-list-item
-        routerLink="/wishlist/{{ wishlist.id }}"
-        routerLinkActive="active-link"
-        >{{ wishlist.name }}</a
-      >
-      <mat-icon (click)="deleteWishlist(wishlist.id)">delete</mat-icon>
-      <mat-icon (click)="editWishlist(wishlist.id)">edit</mat-icon>
+      <div class="list-item-container" routerLinkActive="active-link">
+        <a mat-list-item routerLink="/wishlist/{{ wishlist.id }}">{{
+          wishlist.name
+          }}</a>
+        <div class="list-item-icon">
+          <mat-icon (click)="deleteWishlist(wishlist.id)">delete</mat-icon>
+        </div>
+        <div class="list-item-icon">
+          <mat-icon (click)="editWishlist(wishlist.id)">edit</mat-icon>
+        </div>
+      </div>
     </mat-nav-list>
     <button
-      mat-button
-      color="primary"
-      (click)="openDialog()"
-      class="add-button"
-    >
-      Add new wishlist
-    </button>
+mat-button
+color="primary"
+(click)="openDialog()"
+class="add-button"
+>
+<mat-icon>add</mat-icon>
+Add new wishlist
+</button>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async"
-      >
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>
-        <img
-          class="logo"
-          src="assets/logo/BetterWish_Logo.png"
-          alt="Better Wish"
-          height="23vw"
-          routerLink="/"
-        />
+        <img class="logo" src="assets/logo/BetterWish_Logo.png" alt="Better Wish" height="23vw" routerLink="/" />
       </span>
     </mat-toolbar>
     <ng-content></ng-content>

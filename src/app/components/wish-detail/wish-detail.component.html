@@ -12,6 +12,7 @@
         </div>
       </ng-template>
           <mat-form-field>
+            <mat-label>Name</mat-label>
               <input
                 matInput
                 type="text"
@@ -22,16 +23,17 @@
               />
           </mat-form-field>
           <mat-form-field>
+            <mat-label>Description</mat-label>
             <textarea
               matInput
               type="text"
               id="description"
-              required
               placeholder="Description"
               formControlName="description"
             ></textarea>
           </mat-form-field>
           <mat-form-field>
+            <mat-label>Url</mat-label>
             <input
               matInput
               type="url"
@@ -42,6 +44,7 @@
             />
           </mat-form-field>
           <mat-form-field>
+            <mat-label>Image Url</mat-label>
             <input
               matInput
               type="url"
@@ -51,6 +54,7 @@
             />
           </mat-form-field>
           <mat-form-field class="price-form-field">
+            <mat-label>Price</mat-label>
             <input
               matInput
               type="text"
@@ -69,8 +73,17 @@
               Already Purchased
           </mat-checkbox>
         </div>
-        <button [disabled]="wishForm.value.name === ''" mat-button type="submit">Save</button>
-        <button mat-button (click)="cancel()">Cancel</button>
+        <button class="wish-detail-button" mat-button (click)="cancel()">
+          Cancel
+          </button>
+          <button
+          [disabled]="wishForm.value.name === ''"
+          class="wish-detail-button wish-save-button"
+          mat-button
+          type="submit"
+          >
+          Save
+          </button>
       </form>
     </div>
 </div>

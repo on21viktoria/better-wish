@@ -1,7 +1,7 @@
 <div class="wrapper" [ngClass]="wish.purchased ? 'already-purchased' : ''">
   <div class="image-wrapper">
     <div *ngIf="wish.image !== ''; else elseBlock">
-      <img mat-card-image [attr.src]="wish.image" />
+      <img class="product-img" mat-card-image [attr.src]="wish.image" (click)="onClick()" />
     </div>
     <ng-template #elseBlock>
       <div class="no-image-wrapper">
@@ -13,19 +13,21 @@
     <div class="wish-details">
       <h3>{{ wish.name }}</h3>
       <p class="wish-price">{{ wish.price }} €</p>
-      <mat-icon class="wish-url" (click)="onClick()">launch</mat-icon>
-      <mat-icon (click)="deleteWish(wish.id)">delete</mat-icon>
-      <mat-icon (click)="editWish(wish.id)">edit</mat-icon>
+      <div class="icon-wrapper">
+        <div class="wish-icon-wrapper">
+          <mat-icon [ngClass]="!wish.url ? 'no-url' : ''" class="wish-url" (click)="onClick()">launch</mat-icon>
+        </div>
+        <div class="wish-icon-wrapper">
+          <mat-icon (click)="deleteWish(wish.id)">delete</mat-icon>
+        </div>
+        <div class="wish-icon-wrapper">
+          <mat-icon (click)="editWish(wish.id)">edit</mat-icon>
+        </div>
+      </div>
+      <form [formGroup]="purchaseForm" class="purchase-form">
+        <mat-checkbox [formControl]="purchased" id="purchased" formControlName="purchased" [ngModel]="wish.purchased"
+          (change)="changePurchaseState($event)">Already Purchased
+        </mat-checkbox>
+      </form>
     </div>
-    <form [formGroup]="purchaseForm" class="purchase-form">
-      <mat-checkbox
-        [formControl]="purchased"
-        id="purchased"
-        formControlName="purchased"
-        [ngModel]="wish.purchased"
-        (change)="changePurchaseState($event)"
-        >Already Purchased
-      </mat-checkbox>
-    </form>
-  </div>
-</div>
+  </div> 
