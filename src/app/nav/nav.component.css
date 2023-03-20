@@ -31,3 +31,12 @@ mat-toolbar {
 .active-link {
   background-color: #673ab71c;
 }
+
+.list-item-container {
+  display: flex;
+  align-items: center;
+}
+
+.list-item-icon {
+  padding-right: 13px;
+}
