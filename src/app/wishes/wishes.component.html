@@ -13,7 +13,12 @@
     <div class="wish-details">
       <h3>{{ wish.name }}</h3>
       <p class="wish-price">{{ wish.price }} €</p>
-      <mat-icon class="wish-url" (click)="onClick()">launch</mat-icon>
+      <mat-icon
+        [ngClass]="!wish.url ? 'no-url' : ''"
+        class="wish-url"
+        (click)="onClick()"
+        >launch</mat-icon
+      >
       <mat-icon (click)="deleteWish(wish.id)">delete</mat-icon>
     </div>
     <form [formGroup]="purchaseForm" class="purchase-form">
