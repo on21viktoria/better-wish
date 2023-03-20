@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Wish } from '../wish';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Wish } from '../../interfaces/wish';
 import { FormBuilder, FormControl } from '@angular/forms';
-import { WishlistService } from '../wishlist.service';
+import { WishlistService } from '../../wishlist.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
-import { Wishlist } from '../wishlist';
+import { Wishlist } from '../../interfaces/wishlist';
 
 @Component({
   selector: 'app-wishes',
@@ -21,7 +21,8 @@ export class WishesComponent {
   constructor(
     private formBuilder: FormBuilder,
     private wishlistService: WishlistService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   purchaseForm = this.formBuilder.group({
@@ -42,15 +43,18 @@ export class WishesComponent {
     } else {
       this.wish.purchased = true;
     }
-    console.log('ChangePurchaseState', this.wish.purchased);
-    console.log('CurrentWishlistId', this.currentWishlist.id);
     this.wishlistService.alterPurchaseState(
       this.currentWishlist.id,
       this.wish.id,
       this.wish.purchased
     );
   }
+
   async deleteWish(id: string) {
     this.wishDeleted.emit(id);
+  }
+
+  editWish(id: string) {
+    this.router.navigate([`./wish/${id}`], {relativeTo: this.route});
   }
 }

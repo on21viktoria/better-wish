@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Wishlist } from '../wishlist';
-import { WishlistService } from '../wishlist.service';
+import { Wishlist } from '../../interfaces/wishlist';
+import { WishlistService } from '../../wishlist.service';
 
 @Component({
   selector: 'app-wishlists',
@@ -26,14 +26,13 @@ export class WishlistsComponent {
   }
 
   async getCurrentWishlist() {
-    const id = String(this.route.snapshot.paramMap.get('id'));
+    const id = String(this.route.snapshot.paramMap.get('wishlistId'));
     await this.wishlistService.getWishlist(id).then((wishlist) => {
       if (!wishlist) {
         throw new Error('Unexpected error: Missing wishlist');
       }
       this.wishlist = wishlist;
     });
-    console.log(this.wishlist);
   }
 
   navigate() {
@@ -41,8 +40,18 @@ export class WishlistsComponent {
   }
 
   async deleteWish(id: string) {
-    const wishlistId = String(this.route.snapshot.paramMap.get('id'));
+    const wishlistId = String(this.route.snapshot.paramMap.get('wishlistId'));
     this.wishlistService.deleteWishFromWishlist(wishlistId, id);
     this.getCurrentWishlist();
+  }
+
+  checkIfWishesAlreadyPurchasedExists() {
+    const purchasedWishes = this.wishlist.wishes?.filter(wish => wish.purchased === true);
+
+    if(purchasedWishes?.length === 0){
+      return false
+    }
+
+    return true
   }
 }

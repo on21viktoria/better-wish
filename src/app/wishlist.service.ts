@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import Dexie from 'dexie';
-import { Wish } from './wish';
-import { Wishlist } from './wishlist';
+import { Wish } from './interfaces/wish';
+import { Wishlist } from './interfaces/wishlist';
 
 @Injectable({
   providedIn: 'root',
@@ -52,7 +52,6 @@ export class WishlistService extends Dexie {
       price,
       purchased,
     };
-    console.log(purchased);
     return await this.wishlists
       .where('id')
       .equals(wishlistId)
@@ -66,12 +65,10 @@ export class WishlistService extends Dexie {
     wishId: string,
     purchased: boolean
   ) {
-    console.log('in alterPurchaseState', purchased);
     return await this.wishlists
       .where('id')
       .equals(wishlistId)
       .modify((wishlist) => {
-        console.log(wishlist);
         wishlist.wishes?.map((wish) => {
           if (wish.id == wishId) {
             wish.purchased = purchased;
@@ -80,12 +77,13 @@ export class WishlistService extends Dexie {
         });
       });
   }
+
   async deleteWishlist(id: string) {
     await this.wishlists.delete(id);
   }
 
   async updateWishlist(id: string, newName: string) {
-    await this.wishlists.update(id, { name: newName });
+    return await this.wishlists.update(id, { name: newName });
   }
 
   async deleteWishFromWishlist(wishlistId: string, wishId: string) {
@@ -98,5 +96,14 @@ export class WishlistService extends Dexie {
         );
         wishlist.wishes = updatedWishes;
       });
+  }
+
+  async updateWishfromWishlist(wishlistId: string, wishId: string, wish: Wish){
+    return await this.wishlists.where('id').equals(wishlistId).modify((wishlist) => {
+      if(wishlist.wishes){
+        const wishToUpdateIndex = wishlist.wishes.findIndex(wish => wish.id === wishId)
+        wishlist.wishes[wishToUpdateIndex] = wish
+      }
+    });
   }
 }

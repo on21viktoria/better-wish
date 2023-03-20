@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { NavComponent } from './nav/nav.component';
+import { NavComponent } from './components/nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -12,17 +12,19 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { WishlistsComponent } from './wishlists/wishlists.component';
-import { WishesComponent } from './wishes/wishes.component';
-import { AddWishlistComponent } from './add-wishlist/add-wishlist.component';
+import { WishlistsComponent } from './components/wishlists/wishlists.component';
+import { WishesComponent } from './components/wishes/wishes.component';
+import { AddWishlistComponent } from './components/add-wishlist/add-wishlist.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
-import { WishDetailComponent } from './wish-detail/wish-detail.component';
+import { WishDetailComponent } from './components/wish-detail/wish-detail.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home/home.component';
+import { WishEditComponent } from './components/wish-edit/wish-edit.component';
+import { EditWishlistComponent } from './components/edit-wishlist/edit-wishlist.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { HomeComponent } from './home/home.component';
     AddWishlistComponent,
     WishDetailComponent,
     HomeComponent,
+    WishEditComponent,
+    EditWishlistComponent,
   ],
   imports: [
     BrowserModule,

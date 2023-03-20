@@ -1,0 +1,79 @@
+<div class="container">
+    <h1>{{ currentWishlist.name }}</h1>
+    <h2>Edit wish</h2>
+      <div class="form-container">
+        <form (ngSubmit)="editWishToWishlist()" [formGroup]="wishEditForm">
+            <div class="image-container" *ngIf="wishEditForm.value.image; else elseBlock">
+                <img [attr.src]="wishEditForm.value.image" />
+            </div>
+            <ng-template #elseBlock>
+              <div class="image-container">
+                <img src="../../../assets/icons/Stern_512.png" />
+              </div>
+            </ng-template>
+            <mat-form-field>
+              <mat-label>Name</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  id="name"
+                  required
+                  placeholder="Name"
+                  formControlName="name"
+                />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Decription</mat-label>
+              <textarea
+                matInput
+                type="text"
+                id="description"
+                placeholder="Description"
+                formControlName="description"
+              ></textarea>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Url</mat-label>
+              <input
+                matInput
+                type="url"
+                id="url"
+                placeholder="URL"
+                formControlName="url"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Image Url</mat-label>
+              <input
+                matInput
+                type="url"
+                id="image"
+                placeholder="Image Url"
+                formControlName="image"
+              />
+            </mat-form-field>
+            <mat-form-field class="price-form-field">
+              <mat-label>Price</mat-label>
+              <input
+                matInput
+                type="text"
+                id="price"
+                placeholder="Price"
+                formControlName="price"
+              />
+              <span matTextSuffix>&#8364;</span>
+            </mat-form-field>
+          <div class="form-field-container">
+            <mat-checkbox
+                [formControl]="purchased"
+                id="purchased"
+                formControlName="purchased">
+                Already Purchased
+            </mat-checkbox>
+          </div>
+          <button [disabled]="wishEditForm.value.name === ''" mat-button type="submit">Save</button>
+          <button mat-button type="button" (click)="cancel()">Cancel</button>
+        </form>
+      </div>
+  </div>
+  
