@@ -35,8 +35,34 @@ mat-toolbar {
 .list-item-container {
   display: flex;
   align-items: center;
+
 }
 
 .list-item-icon {
   padding-right: 13px;
+  cursor: pointer;
+
+}
+
+.mat-mdc-list-base {
+  --mdc-list-list-item-hover-state-layer-color: none!important;
+  --mdc-list-list-item-focus-label-text-color: none !important;
+  --mdc-list-list-item-hover-label-text-color: none !important;
+  --mdc-list-list-item-label-text-color: none !important;
+  --mdc-list-list-item-supporting-text-color: none !important;
+  --mdc-list-list-item-leading-icon-color: none !important;
+  --mdc-list-list-item-focus-state-layer-color: none  !important;
+  --mdc-list-list-item-trailing-supporting-text-color: none !important;
+  --mdc-list-list-item-trailing-icon-color: none !important;
+  --mdc-list-list-item-selected-trailing-icon-color: none !important;
+  --mdc-list-list-item-disabled-label-text-color: none !important;
+  --mdc-list-list-item-disabled-leading-icon-color: none !important;
+  --mdc-list-list-item-hover-leading-icon-color: none !important;
+  --mdc-list-list-item-hover-trailing-icon-color: none !important;
+  --mdc-list-list-item-disabled-trailing-icon-color: none !important;
+  --mdc-list-list-item-hover-state-layer-opacity: none !important;
+  --mdc-list-list-item-focus-state-layer-opacity: none !important;
+  --mdc-list-list-item-container-color: none!important;
+  --mdc-list-list-item-selected-container-color: none !important;
+  --mdc-list-list-item-leading-avatar-color: none !important
 }
