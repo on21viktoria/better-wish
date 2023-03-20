@@ -1,68 +1,77 @@
 <div class="container">
   <h1>{{ currentWishlist.name }}</h1>
   <h2>Add your wish</h2>
-    <div class="form-container">
-      <form (ngSubmit)="addWishToWishlist()" [formGroup]="wishForm">
-          <mat-form-field>
-              <input
-                matInput
-                type="text"
-                id="name"
-                required
-                placeholder="Name"
-                formControlName="name"
-              />
-          </mat-form-field>
-          <mat-form-field>
-            <textarea
-              matInput
-              type="text"
-              id="description"
-              required
-              placeholder="Description"
-              formControlName="description"
-            ></textarea>
-          </mat-form-field>
-          <mat-form-field>
-            <input
-              matInput
-              type="url"
-              id="url"
-              required
-              placeholder="URL"
-              formControlName="url"
-            />
-          </mat-form-field>
-          <mat-form-field>
-            <input
-              matInput
-              type="url"
-              id="image"
-              placeholder="Image URL"
-              formControlName="image"
-            />
-          </mat-form-field>
-          <mat-form-field class="price-form-field">
-            <input
-              matInput
-              type="text"
-              id="price"
-              required
-              placeholder="Price"
-              formControlName="price"
-            />
-            <span matTextSuffix>&#8364;</span>
-          </mat-form-field>
-        <div class="form-field-container">
-          <mat-checkbox
-              [formControl]="purchased"
-              id="purchased"
-              formControlName="purchased">
-              Already Purchased
-          </mat-checkbox>
-        </div>
-        <button mat-button type="submit">Save</button>
-        <button mat-button (click)="cancel()">Cancel</button>
-      </form>
-    </div>
+  <div class="form-container">
+    <form (ngSubmit)="addWishToWishlist()" [formGroup]="wishForm">
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          id="name"
+          required
+          placeholder="Name"
+          formControlName="name"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <textarea
+          matInput
+          type="text"
+          id="description"
+          required
+          placeholder="Description"
+          formControlName="description"
+        ></textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="url"
+          id="url"
+          required
+          placeholder="URL"
+          formControlName="url"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="url"
+          id="image"
+          placeholder="Image URL"
+          formControlName="image"
+        />
+      </mat-form-field>
+      <mat-form-field class="price-form-field">
+        <input
+          matInput
+          type="text"
+          id="price"
+          required
+          placeholder="Price"
+          formControlName="price"
+        />
+        <span matTextSuffix>&#8364;</span>
+      </mat-form-field>
+      <div class="form-field-container">
+        <mat-checkbox
+          [formControl]="purchased"
+          id="purchased"
+          formControlName="purchased"
+        >
+          Already Purchased
+        </mat-checkbox>
+      </div>
+      <button class="wish-detail-button" mat-button (click)="cancel()">
+        Cancel
+      </button>
+      <button
+        class="wish-detail-button wish-save-button"
+        mat-button
+        type="submit"
+      >
+        Save
+      </button>
+    </form>
+  </div>
 </div>
