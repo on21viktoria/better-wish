@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { Wishlist } from '../wishlist';
+import { Wishlist } from '../../interfaces/wishlist';
 import { MatDialog } from '@angular/material/dialog';
-import { WishlistService } from '../wishlist.service';
+import { WishlistService } from '../../wishlist.service';
 import { AddWishlistComponent } from '../add-wishlist/add-wishlist.component';
 import { Router } from '@angular/router';
+import { EditWishlistComponent } from '../edit-wishlist/edit-wishlist.component';
 
 @Component({
   selector: 'app-nav',
@@ -61,5 +62,31 @@ export class NavComponent {
     await this.wishlistService.deleteWishlist(id);
     this.refresh();
     this.router.navigate(['./']);
+  }
+
+  openEditDialog(id: string, newName: string){
+    const dialogRef = this.dialog.open(EditWishlistComponent, {
+      data: { name: newName },
+    });
+
+    dialogRef.afterClosed().subscribe((name) => {
+      if (name) {
+        this.wishlistService.updateWishlist(id, name);
+        this.refresh();
+      }
+    });
+  }
+
+  editWishlist(id: string){
+    const name = this.getWishlistName(id).name;
+    this.openEditDialog(id, name);
+  }
+
+  getWishlistName(id: string) : Wishlist{
+    const wishlist = this.wishlists.find(wishlist => wishlist.id === id);
+    if(!wishlist){
+      throw new Error ("Wishlist not found")
+    }
+    return wishlist;
   }
 }

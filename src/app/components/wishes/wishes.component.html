@@ -15,6 +15,7 @@
       <p class="wish-price">{{ wish.price }} €</p>
       <mat-icon class="wish-url" (click)="onClick()">launch</mat-icon>
       <mat-icon (click)="deleteWish(wish.id)">delete</mat-icon>
+      <mat-icon (click)="editWish(wish.id)">edit</mat-icon>
     </div>
     <form [formGroup]="purchaseForm" class="purchase-form">
       <mat-checkbox

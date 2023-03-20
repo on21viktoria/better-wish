@@ -7,7 +7,8 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="(isHandset$ | async) === false"
   >
-    <mat-toolbar class="menu">Wishlists</mat-toolbar>
+    <mat-toolbar class="menu">Wishlists
+    </mat-toolbar>
     <mat-nav-list *ngFor="let wishlist of wishlists">
       <a
         mat-list-item
@@ -16,7 +17,7 @@
         >{{ wishlist.name }}</a
       >
       <mat-icon (click)="deleteWishlist(wishlist.id)">delete</mat-icon>
-      <mat-icon>update</mat-icon>
+      <mat-icon (click)="editWishlist(wishlist.id)">edit</mat-icon>
     </mat-nav-list>
     <button
       mat-button
@@ -38,7 +39,6 @@
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>
         <img
           class="logo"
           src="assets/logo/BetterWish_Logo.png"
@@ -46,7 +46,6 @@
           height="23vw"
           routerLink="/"
         />
-      </span>
     </mat-toolbar>
     <ng-content></ng-content>
   </mat-sidenav-content>

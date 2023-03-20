@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { WishlistService } from '../wishlist.service';
-import { Wishlist } from '../wishlist';
+import { WishlistService } from '../../wishlist.service';
+import { Wishlist } from '../../interfaces/wishlist';
 
 @Component({
   selector: 'app-wish-detail',
@@ -30,12 +30,17 @@ export class WishDetailComponent {
   });
 
   ngOnInit() {
-    const id = String(this.route.snapshot.paramMap.get('id'));
+    const id = String(this.route.snapshot.paramMap.get('wishlistId'));
+
+    console.log(String(this.route.parent))
+
     this.wishlistService.getWishlist(id).then((wishlist) => {
     if(!wishlist) {
     throw new Error ("Unexpected error: Missing wishlist");
     }
     this.currentWishlist = wishlist;
+
+    
 });
   }
 
@@ -46,8 +51,9 @@ export class WishDetailComponent {
     let image = this.wishForm.value.image || '';
     let price = this.wishForm.value.price || '';
     let purchased = this.wishForm.value.purchased || false;
-    console.log(purchased);
-    const wishlistId = String(this.route.snapshot.paramMap.get('id'));
+
+
+    const wishlistId = String(this.route.snapshot.paramMap.get('wishlistId'));
     await this.wishlistService.addWishToWishlist(wishlistId, name, description, url, image, price, purchased);
     this.router.navigate(['../'], { relativeTo: this.route });
   }
