@@ -8,21 +8,22 @@
     [opened]="(isHandset$ | async) === false"
   >
     <mat-toolbar class="menu">Wishlists</mat-toolbar>
-    <mat-nav-list *ngFor="let wishlist of wishlists" routerLinkActive="active-link">
-      <div class="list-item-container">
-        <a
-          mat-list-item
-          routerLink="/wishlist/{{ wishlist.id }}"
-          >{{ wishlist.name }}</a
-        >
-        <div class="list-item-icon">
-          <mat-icon (click)="deleteWishlist(wishlist.id)">delete</mat-icon>
+      <mat-nav-list
+        *ngFor="let wishlist of wishlists"
+
+      >
+        <div class="list-item-container" routerLinkActive="active-link">
+          <a mat-list-item routerLink="/wishlist/{{ wishlist.id }}">{{
+            wishlist.name
+          }}</a>
+          <div class="list-item-icon">
+            <mat-icon (click)="deleteWishlist(wishlist.id)">delete</mat-icon>
+          </div>
+          <div class="list-item-icon">
+            <mat-icon>update</mat-icon>
+          </div>
         </div>
-        <div class="list-item-icon">
-          <mat-icon>update</mat-icon>
-        </div>
-      </div>
-    </mat-nav-list>
+      </mat-nav-list>
     <button
       mat-button
       color="primary"
