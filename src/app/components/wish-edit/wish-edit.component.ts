@@ -38,6 +38,7 @@ export class WishEditComponent {
   ngOnInit() {
     const wishlistId = String(this.route.snapshot.paramMap.get('wishlistId'));
     const wishId = String(this.route.snapshot.paramMap.get('wishId'));
+    
     this.wishlistService.getWishlist(wishlistId).then((wishlist) => {
       if(!wishlist) {
       throw new Error ("Unexpected error: Missing wishlist");
