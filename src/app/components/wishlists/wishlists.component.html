@@ -12,7 +12,7 @@
         </app-wishes>
       </div>
     </div>
-    <div >
+    <div *ngIf="checkIfWishesAlreadyPurchasedExists()">
         <h2>Already purchased</h2>
         <div *ngFor="let wish of wishlist.wishes">
           <div *ngIf="wish.purchased">

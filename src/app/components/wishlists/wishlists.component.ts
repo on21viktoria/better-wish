@@ -44,5 +44,14 @@ export class WishlistsComponent {
     this.wishlistService.deleteWishFromWishlist(wishlistId, id);
     this.getCurrentWishlist();
   }
-  
+
+  checkIfWishesAlreadyPurchasedExists() {
+    const purchasedWishes = this.wishlist.wishes?.filter(wish => wish.purchased === true);
+
+    if(purchasedWishes?.length === 0){
+      return false
+    }
+
+    return true
+  }
 }
