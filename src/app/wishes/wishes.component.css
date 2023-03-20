@@ -36,11 +36,16 @@ h2 {
 .wish-price {
   color: grey;
   font-weight: semibold;
+  margin-left: 2px;
 }
 
 .wish-details {
   padding-left: 11px;
   margin-bottom: 5%;
+}
+
+h3 {
+  margin-left: 2px;
 }
 
 #purchased {
@@ -56,6 +61,19 @@ mat-icon {
 }
 
 .no-url {
-  color: #d8dce4;
+  color: #bdbcbc;
   cursor: default;
+}
+
+.icon-wrapper {
+  display: flex;
+}
+
+.wish-icon-wrapper {
+  padding-top: 15px;
+  padding-right: 15px;
+}
+
+.product-img {
+  cursor: pointer;
 }
