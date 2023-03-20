@@ -1,36 +1,48 @@
 .container {
-    max-width: 700px;
-    /* display: flex; */
-    padding: 20px;
-    margin: 20px;
-    border-radius: 10px;
-  }
-  
-  /* .form-container {
+  max-width: 700px;
+  /* display: flex; */
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+/* .form-container {
     display: flex;
   } */
-  
-  .form-field-container {
-    margin-bottom: 20px;
-  }
 
-  .image-container {
-    width: 100%;
-    height:300px;
-    margin-bottom: 20px;
-  }
+.form-field-container {
+  margin-bottom: 20px;
+}
 
-  .image-container > img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-  
-  mat-form-field {
-    width: 100%!important;
-  }
-  
-  .price-form-field {
-    width: 40%!important;
-  }
-  
+.image-container {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+.image-container > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+mat-form-field {
+  width: 100% !important;
+}
+
+.price-form-field {
+  width: 40% !important;
+}
+
+.edit-wish-button {
+  border: 0.3px solid #c8c8c8;
+  margin-right: 15px;
+  margin-bottom: 20px;
+  padding-left: 5%;
+  padding-right: 5%;
+  font-size: 15px;
+}
+
+.edit-wish-save-button {
+  background-color: #673ab71c;
+}
