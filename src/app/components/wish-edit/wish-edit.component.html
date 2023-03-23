@@ -10,10 +10,20 @@
         <img [attr.src]="wishEditForm.value.image" />
       </div>
       <ng-template #elseBlock>
-        <div class="star-container">
-          <img src="../../../assets/icons/Stern_512.png" />
+        <div class="image-container">
+          <img src="../../../assets/image-template.png" />
         </div>
       </ng-template>
+      <mat-form-field class="imageinput">
+        <mat-label>Image Link</mat-label>
+        <input
+          matInput
+          type="url"
+          id="image"
+          placeholder="Image Link"
+          formControlName="image"
+        />
+      </mat-form-field>
       <mat-form-field>
         <mat-label>Name</mat-label>
         <input
@@ -26,7 +36,7 @@
         />
       </mat-form-field>
       <mat-form-field>
-        <mat-label>Decription</mat-label>
+        <mat-label>Description</mat-label>
         <textarea
           matInput
           type="text"
@@ -43,16 +53,6 @@
           id="url"
           placeholder="URL"
           formControlName="url"
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Image Link</mat-label>
-        <input
-          matInput
-          type="url"
-          id="image"
-          placeholder="Image Link"
-          formControlName="image"
         />
       </mat-form-field>
       <mat-form-field class="price-form-field">

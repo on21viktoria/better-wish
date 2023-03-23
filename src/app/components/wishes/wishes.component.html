@@ -5,14 +5,14 @@
     </div>
     <ng-template #elseBlock>
       <div class="no-image-wrapper">
-        <img mat-card-image src="../../../assets/icons/Stern_128.png" />
+        <img mat-card-image src="../../../assets/image-template.png" />
       </div>
     </ng-template>
   </div>
   <div class="content-wrapper">
     <div class="wish-details">
       <h3>{{ wish.name }}</h3>
-      <p class="wish-price">{{ wish.price }} €</p>
+      <p class="wish-price" *ngIf="wish.price">{{ wish.price }} €</p>
       <div class="icon-wrapper">
         <div class="wish-icon-wrapper">
           <mat-icon [ngClass]="!wish.url ? 'no-url' : ''" class="wish-url" (click)="onClick()">launch</mat-icon>

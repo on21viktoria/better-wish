@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -15,9 +15,11 @@ import { EditWishlistComponent } from '../edit-wishlist/edit-wishlist.component'
   styleUrls: ['./nav.component.css'],
 })
 export class NavComponent {
+  @ViewChild('drawer') drawer: any;
   [x: string]: any;
   wishlists: Wishlist[] = [];
   name: string;
+  oldWishlists: Wishlist[] = [];
 
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
@@ -39,6 +41,8 @@ export class NavComponent {
     this.wishlistService
       .getAllWishlists()
       .then((wishlists) => (this.wishlists = wishlists));
+
+    this.getOldWishlists();
   }
 
   openDialog() {
@@ -50,12 +54,33 @@ export class NavComponent {
       if (name) {
         this.wishlistService.addWishlist(name);
         this.refresh();
+        this.navigateToWishlist()
       }
     });
   }
 
   async refresh() {
     this.wishlists = await this.wishlistService.getAllWishlists();
+    this.getOldWishlists();
+  }
+
+  async navigateToWishlist(){
+    //get new Wishlists
+    let newWishlists = await this.wishlistService.getAllWishlists();
+
+    let oldWishlistIds = this.oldWishlists.map(oldWishlist => {return oldWishlist.id})
+    let newWishlist = newWishlists.find(wishlist => !(oldWishlistIds.includes(wishlist.id)));
+
+    //navigate to new Wishlist
+    if(newWishlist) {
+      this.router.navigate([`./wishlist/${newWishlist.id}`]);
+    }
+
+    this.closeSideNav();
+  }
+
+  async getOldWishlists() {
+    this.oldWishlists = await this.wishlistService.getAllWishlists();
   }
 
   async deleteWishlist(id: string) {
@@ -88,5 +113,13 @@ export class NavComponent {
       throw new Error ("Wishlist not found")
     }
     return wishlist;
+  }
+
+  closeSideNav() {
+    this.isHandset$.subscribe(isVisible => {
+      if(isVisible) {
+        this.drawer.close();
+      }
+    });
   }
 }

@@ -4,7 +4,7 @@
     <mat-toolbar class="menu">Wishlists</mat-toolbar>
     <mat-nav-list *ngFor="let wishlist of wishlists">
       <div class="list-item-container" routerLinkActive="active-link">
-        <a mat-list-item routerLink="/wishlist/{{ wishlist.id }}">{{
+        <a mat-list-item routerLink="/wishlist/{{ wishlist.id }}" (click)="closeSideNav()">{{
           wishlist.name
           }}</a>
         <div class="list-item-icon">
